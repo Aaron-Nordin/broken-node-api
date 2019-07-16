@@ -30,6 +30,7 @@ module.exports = {
         const { id } = req.params
         const editedGame = {...req.body}
         const index = games.findIndex( val => val.id === +id)
+        game[index] = {...games[index], ...editedGame}
         res.status(200).send(games)
     },
     deleteGame: (req,res) =>{
